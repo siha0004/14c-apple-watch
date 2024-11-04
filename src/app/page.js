@@ -22,15 +22,16 @@ export default function Home() {
             <span className=" font-bold">The Perfect Moment</span> Between Past And Future.
           </h1>
           <div className="row-span-2 flex items-center pb-12">
-            <Image src={navy} alt="Picture of iWatch with navy watch strap" placeholder="blur" />
-            <ColorIndicator></ColorIndicator>
+            {color === "mint" ? <Image src={mint} alt="mint iWatch" placeholder="blur" /> : color === "ocean" ? <Image src={ocean} alt="oceaniWatch" placeholder="blur" /> : <Image src={navy} alt="navy iWatch" placeholder="blur" />}
+
+            <ColorIndicator color={color} setColor={setColor}></ColorIndicator>
           </div>
           <ButtonCTA textCTA="Buy Now"></ButtonCTA>
           <PageIndicator number="1"></PageIndicator>
           <ul className="grid grid-cols-3 gap-8">
-            <WatchExample watchColor={navy} color={color} colorClicked="navy" setColor={setColor}></WatchExample>
-            <WatchExample watchColor={mint} color={color} colorClicked="mint" setColor={setColor}></WatchExample>
-            <WatchExample watchColor={ocean} color={color} colorClicked="ocean" setColor={setColor}></WatchExample>
+            <WatchExample bgColor="bg-[#404354]" imgColor={navy} colorClicked="navy" color={color} setColor={setColor}></WatchExample>
+            <WatchExample bgColor="bg-[#58D7C4]" imgColor={mint} colorClicked="mint" color={color} setColor={setColor}></WatchExample>
+            <WatchExample bgColor="bg-[#F2CEC6]" imgColor={ocean} colorClicked="ocean" color={color} setColor={setColor}></WatchExample>
           </ul>
         </section>
       </main>
